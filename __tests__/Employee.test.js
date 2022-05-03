@@ -1,11 +1,11 @@
-// const Employee = require("../lib/Employee");
+const Employee = require("../lib/Employee");
 
-test("creates employee", () => {
-  const employee = new Employee("ted", 123, "ted@email.com");
+test("create employee object", () => {
+  const employee = new Employee("ted", "id", "ted@email.com");
 
-  expect(employee.name).toEqual(expect.any(String));
-  expect(employee.id).toEqual(expect.any(Number));
-  expect(employee.email).toEqual(expect.any(String));
+  expect(employee.name).toBe("ted");
+  expect(employee.id).toBe("id");
+  expect(employee.email).toBe("ted@email.com");
 });
 
 // employee needs to have name, ID, email(mailto)

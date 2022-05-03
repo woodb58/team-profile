@@ -18,5 +18,8 @@
   "homepage": "https://github.com/woodb58/team-profile#readme",
   "devDependencies": {
     "jest": "^28.0.3"
+  },
+  "directories": {
+    "lib": "lib"
   }
 }

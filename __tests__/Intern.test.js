@@ -1,9 +1,9 @@
 const Intern = require("../lib/Intern");
 
 test("creates Intern", () => {
-  const intern = new Intern("ted", 123, "ted@email.com");
+  const intern = new Intern("ted", "id", "ted@email.com", "school");
 
-  expect(intern.school).toEqual(expect.any("String"));
+  expect(intern.school).toBe("school");
 });
 
 // Intern needs to have name, ID, email(mailto)

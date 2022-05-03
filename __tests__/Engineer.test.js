@@ -1,9 +1,9 @@
 const Engineer = require("../lib/Engineer");
 
 test("creates engineer", () => {
-  const engineer = new Engineer();
+  const engineer = new Engineer("ted", "id", "ted@email.com", "github");
 
-  expect(engineer.github).toEqual(expect.any(String));
+  expect(engineer.github).toBe("github");
 });
 
 // Intern needs to have name, ID, email(mailto)

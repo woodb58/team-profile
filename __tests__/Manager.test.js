@@ -1,9 +1,9 @@
 const Manager = require("../lib/Manager");
 
 test("creates Manager", () => {
-  const manager = new Manager("ted", 123, "ted@email.com");
+  const manager = new Manager("ted", "id", "ted@email.com", "officeNumber");
 
-  expect(manager.office).toEqual(expect.any(Number));
+  expect(manager.officeNumber).toBe("officeNumber");
 });
 
 // Manager needs to have name, ID, email(mailto)
