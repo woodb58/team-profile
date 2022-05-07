@@ -31,8 +31,3 @@ test("gets employee email", () => {
 
   expect(employee.getRole()).toBe("Employee");
 });
-
-// employee needs to have name, ID, email(mailto)
-// manager name, ID, email, *office
-// engineer name, ID, email, *github(new tab)
-// intern name, ID, email, *school

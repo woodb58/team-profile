@@ -5,8 +5,3 @@ test("creates Manager", () => {
 
   expect(manager.officeNumber).toBe("officeNumber");
 });
-
-// Manager needs to have name, ID, email(mailto)
-// manager name, ID, email, *office
-// engineer name, ID, email, *github(new tab)
-// Manager name, ID, email, *school

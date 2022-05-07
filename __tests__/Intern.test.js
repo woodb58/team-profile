@@ -5,8 +5,3 @@ test("creates Intern", () => {
 
   expect(intern.school).toBe("school");
 });
-
-// Intern needs to have name, ID, email(mailto)
-// manager name, ID, email, *office
-// engineer name, ID, email, *github(new tab)
-// intern name, ID, email, *school
