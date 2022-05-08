@@ -17,7 +17,7 @@ const openingPrompt = function () {
       {
         type: "input",
         name: "name",
-        message: "What is the team manager's name?",
+        message: "What is the team Manager's name?",
         validate: (input) => {
           if (input) {
             return true;
@@ -30,7 +30,7 @@ const openingPrompt = function () {
       {
         type: "input",
         name: "id",
-        message: "Enter the team manager's employee ID?",
+        message: "Enter the team Manager's employee ID?",
         validate: (input) => {
           if (input) {
             return true;
@@ -43,7 +43,7 @@ const openingPrompt = function () {
       {
         type: "input",
         name: "email",
-        message: "Enter the team manager's email address?",
+        message: "Enter the team Manager's email address?",
         validate: (input) => {
           if (!input || !input.includes("@") || !input.includes(".")) {
             console.log(" Please enter a valid email address");
@@ -56,7 +56,7 @@ const openingPrompt = function () {
       {
         type: "input",
         name: "officeNumber",
-        message: "What is the team manager's office number?",
+        message: "What is the team Manager's office number?",
         validate: (input) => {
           if (input) {
             return true;
@@ -75,7 +75,7 @@ const openingPrompt = function () {
         response.officeNumber
       );
       team.push(manager);
-      console.log(team);
+      console.log(`${manager.name} has been added to your team`);
       addEmployee();
     });
 };
@@ -86,7 +86,7 @@ function addEmployee() {
       {
         type: "list",
         name: "addEmployee",
-        message: "Add another employee?",
+        message: "Would you like to add another employee?",
         choices: ["Engineer", "Intern", "done with team"],
       },
     ])
@@ -99,19 +99,22 @@ function addEmployee() {
           promptIntern();
           break;
         default:
+          console.log(
+            "Your team has been generated. Please visit the distribution folder to find your HTML document."
+          );
           generateTeam();
       }
     });
 }
 
 const promptEngineer = function () {
-  console.log("enter engineer information");
+  console.log("Enter Engineer's information");
   inquirer
     .prompt([
       {
         type: "input",
         name: "name",
-        message: "What is the team Engineer's name?",
+        message: "What is the Engineer's name?",
         validate: (input) => {
           if (input) {
             return true;
@@ -124,7 +127,7 @@ const promptEngineer = function () {
       {
         type: "input",
         name: "id",
-        message: "Enter the team Engineer's employee ID?",
+        message: "Enter the Engineer's employee ID?",
         validate: (input) => {
           if (input) {
             return true;
@@ -137,7 +140,7 @@ const promptEngineer = function () {
       {
         type: "input",
         name: "email",
-        message: "Enter the team Engineer's email address?",
+        message: "Enter the Engineer's email address?",
         validate: (input) => {
           if (!input || !input.includes("@") || !input.includes(".")) {
             console.log(" Please enter a valid email address");
@@ -150,7 +153,7 @@ const promptEngineer = function () {
       {
         type: "input",
         name: "github",
-        message: "What is the team Engineer's github username?",
+        message: "What is the Engineer's github username?",
         validate: (input) => {
           if (input) {
             return true;
@@ -169,19 +172,19 @@ const promptEngineer = function () {
         response.github
       );
       team.push(engineer);
-      console.log(team);
+      console.log(`${engineer.name} has been added to your team`);
       addEmployee();
     });
 };
 
 const promptIntern = function () {
-  console.log("enter Intern information");
+  console.log("Enter Intern information");
   inquirer
     .prompt([
       {
         type: "input",
         name: "name",
-        message: "What is the team Intern's name?",
+        message: "What is Intern's name?",
         validate: (input) => {
           if (input) {
             return true;
@@ -194,7 +197,7 @@ const promptIntern = function () {
       {
         type: "input",
         name: "id",
-        message: "Enter the team Intern's employee ID?",
+        message: "Enter Intern's employee ID?",
         validate: (input) => {
           if (input) {
             return true;
@@ -207,7 +210,7 @@ const promptIntern = function () {
       {
         type: "input",
         name: "email",
-        message: "Enter the team Intern's email address?",
+        message: "Enter Intern's email address?",
         validate: (input) => {
           if (!input || !input.includes("@") || !input.includes(".")) {
             console.log(" Please enter a valid email address");
@@ -239,7 +242,7 @@ const promptIntern = function () {
         response.school
       );
       team.push(intern);
-      console.log(team);
+      console.log(`${intern.name} has been added to your team`);
       addEmployee();
     });
 };
