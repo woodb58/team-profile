@@ -87,21 +87,19 @@ module.exports = (data) => {
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
         crossorigin="anonymous"/>
         <script src="https://kit.fontawesome.com/c502137733.js"></script>
+        <link rel="stylesheet" href="../src/styles.css" />
         <title>Team Builder</title>
     </head>
     <body>
+        <header class="col-12 justify-content-center bg-danger text-light">
+        <p>Team Profile</p>
+        </header>
         
-            <div class="row">
-                <div class="col-12 justify-content-center bg-danger text-light">
-                    <h1>Team Profile</h1>
-                </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                 ${generateHTML(data)}
             </div>
-        
-            <div class="row">
-                <div class="col-12 d-flex justify-content-center">
-                    ${generateHTML(data)}
-                </div>
-            </div>
+        </div>
     </body>
     </html>
     `;

@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(246, 243, 240);
+}
+
+header {
+    text-align: center;    
+}
+
+header p {
+    font-size: 6rem;
+}
+
