@@ -71,20 +71,185 @@ const openingPrompt = function () {
         response.officeNumber
       );
       team.push(manager);
-      console.log(manager);
+      console.log(team);
+      addEmployee();
+    });
+};
+
+function addEmployee() {
+  inquirer
+    .prompt([
+      {
+        type: "list",
+        name: "addEmployee",
+        message: "Add another employee?",
+        choices: ["Engineer", "Intern", "done with team"],
+      },
+    ])
+    .then((userChoice) => {
+      switch (userChoice.addEmployee) {
+        case "Engineer":
+          promptEngineer();
+          break;
+        case "Intern":
+          promptIntern();
+          break;
+        default:
+          generateTeam();
+      }
+    });
+}
+
+const promptEngineer = function () {
+  console.log("enter engineer information");
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "What is the team Engineer's name?",
+        validate: (input) => {
+          if (input) {
+            return true;
+          } else {
+            console.log("Engineer's name is required");
+            return false;
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "Enter the team Engineer's employee ID?",
+        validate: (input) => {
+          if (input) {
+            return true;
+          } else {
+            console.log("Engineer's ID is required");
+            return false;
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "Enter the team Engineer's email address?",
+        validate: (input) => {
+          if (!input || !input.includes("@") || !input.includes(".")) {
+            console.log(" Please enter a valid email address");
+            return false;
+          } else {
+            return true;
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "github",
+        message: "What is the team Engineer's github username?",
+        validate: (input) => {
+          if (input) {
+            return true;
+          } else {
+            console.log("Engineer's github user name required");
+            return false;
+          }
+        },
+      },
+    ])
+    .then((response) => {
+      const engineer = new Engineer(
+        response.name,
+        response.id,
+        response.email,
+        response.github
+      );
+      team.push(engineer);
+      console.log(team);
+      addEmployee();
+    });
+};
+
+const promptIntern = function () {
+  console.log("enter Intern information");
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "What is the team Intern's name?",
+        validate: (input) => {
+          if (input) {
+            return true;
+          } else {
+            console.log("Intern's name is required");
+            return false;
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "Enter the team Intern's employee ID?",
+        validate: (input) => {
+          if (input) {
+            return true;
+          } else {
+            console.log("Intern's ID is required");
+            return false;
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "Enter the team Intern's email address?",
+        validate: (input) => {
+          if (!input || !input.includes("@") || !input.includes(".")) {
+            console.log(" Please enter a valid email address");
+            return false;
+          } else {
+            return true;
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "school",
+        message: "What school did the Intern attend?",
+        validate: (input) => {
+          if (input) {
+            return true;
+          } else {
+            console.log("Intern's school required");
+            return false;
+          }
+        },
+      },
+    ])
+    .then((response) => {
+      const intern = new Intern(
+        response.name,
+        response.id,
+        response.email,
+        response.school
+      );
+      team.push(intern);
+      console.log(team);
+      addEmployee();
     });
 };
 
 function generateTeam() {
   console.log(team);
-  const teamString = teamARR
+  const teamString = team
     .map((team) => {
       return `
     <div class="card employee-card">
   <div class="card-header">
     <h2 class="card-title">${Manager.name}</h2>
     <h3 class="card-title">
-      <i class="fas fa-mug-hot mr-2"></i>${}
+      <i class="fas fa-mug-hot mr-2"></i>${Manager.name}
     </h3>
   </div>
   <div class="card-body">
@@ -111,7 +276,7 @@ function generateTeam() {
       <title>Document</title>
   </head>
   <body>
-      
+
   </body>
   </html>`;
   // use fs to create HTML file
