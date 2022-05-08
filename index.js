@@ -3,6 +3,10 @@ const fs = require("fs");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const generateHTML = require("./src/generateHTML.js");
+const path = require("path");
+const pathDist = path.resolve(__dirname, "dist");
+const insertHTML = path.join(pathDist, "index.HTML");
 
 let team = [];
 
@@ -240,45 +244,12 @@ const promptIntern = function () {
     });
 };
 
-function generateTeam() {
-  console.log(team);
-  const teamString = team
-    .map((team) => {
-      return `
-    <div class="card employee-card">
-  <div class="card-header">
-    <h2 class="card-title">${Manager.name}</h2>
-    <h3 class="card-title">
-      <i class="fas fa-mug-hot mr-2"></i>${Manager.name}
-    </h3>
-  </div>
-  <div class="card-body">
-    <ul class="list-group">
-      <li class="list-group-item">ID: ${Manager.id}</li>
-      <li class="list-group-item">
-        Email: <a href="mailto:${Manager.email}">${Manager.email}</a>
-      </li>
-      <li class="list-group-item">
-        Office number: ${Manager.officeNumber}
-      </li>
-    </ul>
-  </div>
-</div>
-    `;
-    })
-    .join("");
-  const htmlString = `<!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
-  </head>
-  <body>
+const generateTeam = () => {
+  fs.writeFileSync(insertHTML, generateHTML(team), function (err) {
+    if (err) {
+      throw err;
+    }
+  });
+};
 
-  </body>
-  </html>`;
-  // use fs to create HTML file
-}
 openingPrompt();
