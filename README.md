@@ -21,4 +21,4 @@ Node.js command-line application that takes in information about employees on a 
 
 ### Layout:
 
-![team-profile Layout](../src/img/team-profile-screenshot.png)
+![team-profile Layout](./src/img/team-profile-screenshot.png)
